@@ -1,10 +1,16 @@
 <?php
+session_start();
 
 if (!$_SESSION['username'] & $_SESSION['password']) {
     header('location: registration.php');
 } elseif (!$_SESSION['login']) {
     header('location: login.php');
 }
+echo session_status();
+echo $_SESSION['username'];
+echo $_SESSION['password'];
+echo $_SESSION['login'];
+
 
 ?>
 

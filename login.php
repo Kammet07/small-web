@@ -1,4 +1,9 @@
 <?php
+session_start();
+
+echo $_SESSION['username'];
+echo $_SESSION['password'];
+echo $_SESSION['login'];
 
 if (!($_SESSION['username'] & $_SESSION['password'])) {
     header('location: registration.php');

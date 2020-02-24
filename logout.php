@@ -1,4 +1,9 @@
 <?php
 session_start();
-session_destroy();
-echo session_status();
+
+if (!$_SESSION['login']) {
+    header('location: login.php');
+} else {
+    header('location: registration.php');
+    session_destroy();
+}

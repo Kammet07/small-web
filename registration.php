@@ -1,19 +1,13 @@
 <?php
 session_start();
 $_SESSION['login'] = false;
-echo session_status();
 if ($_SESSION['login']) {
     header('location: lorem.php');
-    echo "1";
 } else {
-    echo "4";
-
-
-
     $newUsername = $_POST['username'] ?? null;
     $newPassword = $_POST['password'] ?? null;
 
-    if (is_string($newUsername) & is_string($newPassword)) {
+    if (is_string($newUsername) && is_string($newPassword)) {
         $_SESSION['username'] = $newUsername;
         $_SESSION['password'] = $newPassword;
     }
@@ -21,17 +15,13 @@ if ($_SESSION['login']) {
     $username = $_SESSION['username'] ?? null;
     $password = $_SESSION['password'] ?? null;
 
-    if ($username & $password) {
-        echo "hello";
+    if ($username && $password) {
+        echo "Welcome";
         $_SESSION['login'] = true;
     }
     if ($_SESSION['login']) {
         header('location: lorem.php');
     }
-
-//    echo $_SESSION['username'];
-//    echo $_SESSION['password'];
-    echo $_SESSION['login'];
 }
 
 ?>

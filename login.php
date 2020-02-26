@@ -1,8 +1,6 @@
 <?php
 session_start();
 
-var_dump($_SESSION);
-
 if ($_SESSION['login']) {
     header('location: lorem.php');
 } elseif (!($_SESSION['username'] && $_SESSION['password'])) {

@@ -2,7 +2,7 @@
 session_start();
 
 if ($_SESSION['login']) {
-    header('location: lorem.php');
+    header('location: lorem');
 } elseif (!($_SESSION['username'] && $_SESSION['password'])) {
     $newUsername = $_POST['username'] ?? null;
     $newPassword = $_POST['password'] ?? null;
@@ -16,7 +16,7 @@ if ($_SESSION['login']) {
     $password = $_SESSION['password'] ?? null;
 }
 if (($_SESSION['username'] && $_SESSION['password'])){
-    header('location: login.php');
+    header('location: login');
 }
 
 ?>

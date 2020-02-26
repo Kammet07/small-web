@@ -2,9 +2,9 @@
 session_start();
 
 if (!$_SESSION['username'] && $_SESSION['password']) {
-    header('location: registration.php');
+    header('location: registration');
 } elseif (!$_SESSION['login']) {
-    header('location: login.php');
+    header('location: login');
 }
 
 echo "Username is: " . $_SESSION['username'];

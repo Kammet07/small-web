@@ -2,8 +2,8 @@
 session_start();
 
 if (!$_SESSION['login']) {
-    header('location: login.php');
+    header('location: login');
 } else {
-    header('location: registration.php');
+    header('location: registration');
     session_destroy();
 }

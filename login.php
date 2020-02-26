@@ -8,7 +8,7 @@ if (!($_SESSION['username'] && $_SESSION['password'])) {
     $passwordLogin = $_POST['password'] ?? null;
 
     if (is_string($usernameLogin) && is_string($passwordLogin)) {
-        if ($usernameLogin == $_SESSION['username'] && $passwordLogin == $_SESSION['password']) {
+        if ($usernameLogin === $_SESSION['username'] && $passwordLogin === $_SESSION['password']) {
             $_SESSION['login'] = true;
             header('location: lorem.php');
         }
@@ -16,7 +16,6 @@ if (!($_SESSION['username'] && $_SESSION['password'])) {
 
     $username = null;
     $password = null;
-
 }
 
 ?>

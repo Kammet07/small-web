@@ -1,6 +1,6 @@
 <?php
 session_start();
-$_SESSION['login'] = false;
+
 $newUsername = $_POST['username'] ?? null;
 $newPassword = $_POST['password'] ?? null;
 
@@ -14,13 +14,14 @@ $password = $_SESSION['password'] ?? null;
 
 if ($username && $password) {
     echo "Welcome";
-    $_SESSION['login'] = true;
+    header('location: login.php');
 }
 if ($_SESSION['login']) {
     header('location: lorem.php');
 }
 
 ?>
+
 <form method="post">
     <label>Your username: <input name="username" value="<?= $username ?>"></label>
     <label>Your password: <input name="password" value="<?= $password ?>"></label>

@@ -1,7 +1,9 @@
 <?php
 session_start();
 
-if (!($_SESSION['username'] && $_SESSION['password'])) {
+if ($_SESSION['login']) {
+    header('location: lorem.php');
+} elseif (!($_SESSION['username'] && $_SESSION['password'])) {
     header('location: registration.php');
 } else {
     $usernameLogin = $_POST['username'] ?? null;

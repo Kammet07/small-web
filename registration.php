@@ -3,7 +3,7 @@ session_start();
 
 if (isset($_SESSION['login']) && $_SESSION['login']) {
     header('location: lorem');
-} elseif (!(isset($_SESSION['username']) && isset($_SESSION['password'])) && !($_SESSION['username'] && $_SESSION['password'])) {
+} elseif (!(isset($_SESSION['username']) && isset($_SESSION['password']))) {
     $newUsername = $_POST['username'] ?? null;
     $newPassword = $_POST['password'] ?? null;
 
@@ -18,6 +18,8 @@ if (isset($_SESSION['login']) && $_SESSION['login']) {
 if ((isset($_SESSION['username']) && isset($_SESSION['password'])) && ($_SESSION['username'] && $_SESSION['password'])){
     header('location: login');
 }
+$username = null;
+$password = null;
 
 ?>
 

@@ -1,9 +1,9 @@
 <?php
 session_start();
 
-if ($_SESSION['login']) {
+if (isset($_SESSION['login']) && $_SESSION['login']) {
     header('location: lorem');
-} elseif (!($_SESSION['username'] && $_SESSION['password'])) {
+} elseif (!(isset($_SESSION['username']) && isset($_SESSION['password'])) && !($_SESSION['username'] && $_SESSION['password'])) {
     $newUsername = $_POST['username'] ?? null;
     $newPassword = $_POST['password'] ?? null;
 
@@ -15,7 +15,7 @@ if ($_SESSION['login']) {
     $username = $_SESSION['username'] ?? null;
     $password = $_SESSION['password'] ?? null;
 }
-if (($_SESSION['username'] && $_SESSION['password'])){
+if ((isset($_SESSION['username']) && isset($_SESSION['password'])) && ($_SESSION['username'] && $_SESSION['password'])){
     header('location: login');
 }
 

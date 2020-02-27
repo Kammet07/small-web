@@ -1,26 +1,21 @@
 <?php
+$request = $_SERVER['REQUEST_URI'];
 
-
-$url = $_SERVER['REQUEST_URI'];
-
-
-switch ($url) {
-    case 'login':
-        $filename = 'login.php';
+switch ($request) {
+    case '/login':
+        require __DIR__ . '/login.php';
         break;
-    case 'registration':
-        $filename = 'registration.php';
+    case '/lorem':
+        require __DIR__ . '/lorem.php';
         break;
-    case 'lorem':
-        $filename = 'lorem.php';
+    case '/logout':
+        require __DIR__ . '/logout.php';
         break;
-    case 'logout':
-        $filename = 'logout.php';
+    case '/registration':
+        require __DIR__ . '/registration.php';
         break;
     default:
-        $filename = '404.php';
+        http_response_code(404);
+        require __DIR__ . '/404.php';
         break;
 }
-
-// TODO always initialize $filename
-require $filename;

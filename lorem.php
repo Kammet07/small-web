@@ -3,7 +3,7 @@ session_start();
 
 if (!(isset($_SESSION['username']) && isset($_SESSION['password'])) && !$_SESSION['username'] && $_SESSION['password']) {
     header('location: registration');
-} elseif (isset($_SESSION['login']) && !$_SESSION['login']) {
+} elseif (!isset($_SESSION['login']) || !$_SESSION['login']) {
     header('location: login');
 }
 

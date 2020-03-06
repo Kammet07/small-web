@@ -15,17 +15,12 @@ if (isset($_SESSION['login']) && $_SESSION['login']) {
             header('location: lorem');
         }
     }
-
-    $username = null;
-    $password = null;
 }
-$username = null;
-$password = null;
 
 ?>
 
 <form method="post">
-    <label>Username: <input name="username" value="<?= $username ?>"></label>
-    <label>Password: <input name="password" value="<?= $password ?>"></label>
+    <label>Username: <input name="username"></label>
+    <label>Password: <input name="password"></label>
     <button type="submit">Login</button>
 </form>

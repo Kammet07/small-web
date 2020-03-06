@@ -18,13 +18,11 @@ if (isset($_SESSION['login']) && $_SESSION['login']) {
 if ((isset($_SESSION['username']) && isset($_SESSION['password'])) && ($_SESSION['username'] && $_SESSION['password'])){
     header('location: login');
 }
-$username = null;
-$password = null;
 
 ?>
 
 <form method="post">
-    <label>Your username: <input name="username" value="<?= $username ?>"></label>
-    <label>Your password: <input name="password" value="<?= $password ?>"></label>
+    <label>Your username: <input name="username"></label>
+    <label>Your password: <input name="password"></label>
     <button type="submit">Register</button>
 </form>

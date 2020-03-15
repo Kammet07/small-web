@@ -3,8 +3,10 @@ session_start();
 
 if ($_SESSION['login'] ?? null) {
     header('location: lorem');
+    exit();
 } elseif (!(isset($_SESSION['username']) && isset($_SESSION['password']))) {
     header('location: registration');
+    exit();
 } else {
     $usernameLogin = $_POST['username'] ?? null;
     $passwordLogin = $_POST['password'] ?? null;
@@ -13,6 +15,7 @@ if ($_SESSION['login'] ?? null) {
         if ($usernameLogin === $_SESSION['username'] && $passwordLogin === $_SESSION['password']) {
             $_SESSION['login'] = true;
             header('location: lorem');
+            exit();
         }
     }
 }

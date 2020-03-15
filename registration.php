@@ -1,7 +1,7 @@
 <?php
 session_start();
 
-if (isset($_SESSION['login']) && $_SESSION['login']) {
+if ($_SESSION['login'] ?? null) {
     header('location: lorem');
 } elseif (!(isset($_SESSION['username']) && isset($_SESSION['password']))) {
     $newUsername = $_POST['username'] ?? null;

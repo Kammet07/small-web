@@ -1,23 +1,28 @@
 <?php
+require __DIR__ . '/DB.php';
 
 class User
 {
     public function addUser($username, $password)
     {
-        $conn = new DB;
+        $db = new DB;
+        $connection = $db->connect();
 
-        if ($conn instanceof DB) {
-            password_hash($password, PASSWORD_BCRYPT);
-            $query = "insert into small_web.users (username , password) values ($username, $password)";
+        if ($db instanceof DB) {
+            $password = password_hash($password, PASSWORD_BCRYPT);
+
+            $stmt = $connection->prepare("INSERT INTO small_web.users (username, password) VALUES (?, ?)");
+            $stmt->bind_param("ss", $username, $password);
+            $stmt->execute();
         }
     }
 
-    public function verificateUser($username, $password)
-    {
-        $conn = new DB;
-
-        if ($conn instanceof DB) {
-            $
-        }
-    }
+//    public function verificateUser($username, $password)
+//    {
+//        $conn = new DB;
+//
+//        if ($conn instanceof DB) {
+//            $sql = "select ";
+//        }
+//    }
 }

@@ -1,5 +1,12 @@
 <?php
+require __DIR__ . '/User.php';
+
 session_start();
+
+$user1 = new User();
+
+$user1->addUser("admin", "password");
+
 
 if ($_SESSION['login'] ?? null) {
     header('location: lorem');

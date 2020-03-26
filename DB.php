@@ -28,7 +28,6 @@ class DB
     public function close()
     {
         mysqli_close($this->connection);
-        unset($this);
     }
 
 

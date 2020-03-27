@@ -3,11 +3,6 @@ require __DIR__ . '/User.php';
 
 session_start();
 
-$user1 = new User();
-
-$user1->addUser("admin", "password");
-
-
 if ($_SESSION['login'] ?? null) {
     header('location: lorem');
     exit();
@@ -18,6 +13,9 @@ if ($_SESSION['login'] ?? null) {
     if (is_string($newUsername) && is_string($newPassword)) {
         $_SESSION['username'] = $newUsername;
         $_SESSION['password'] = $newPassword;
+
+        $user = new User();
+        $user->addUser($newUsername, $newPassword);
     }
 
     $username = $_SESSION['username'] ?? null;

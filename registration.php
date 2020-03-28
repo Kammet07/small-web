@@ -3,6 +3,9 @@ require __DIR__ . '/User.php';
 
 session_start();
 
+$user = new User();
+echo $user->verificateUser("12das3", "1234");
+
 if ($_SESSION['login'] ?? null) {
     header('location: lorem');
     exit();

@@ -1,19 +1,21 @@
 <?php
+require __DIR__ . '/User.php';
+
 session_start();
 
 if ($_SESSION['login'] ?? null) {
     header('location: lorem');
     exit();
-} elseif (!(isset($_SESSION['username']) && isset($_SESSION['password']))) {
-    header('location: registration');
-    exit();
 } else {
     $usernameLogin = $_POST['username'] ?? null;
     $passwordLogin = $_POST['password'] ?? null;
 
+    $user = new User();
+
     if (is_string($usernameLogin) && is_string($passwordLogin)) {
-        if ($usernameLogin === $_SESSION['username'] && $passwordLogin === $_SESSION['password']) {
+        if ($user->verificateUser($usernameLogin, $passwordLogin)) {
             $_SESSION['login'] = true;
+            $_SESSION['username'] = $usernameLogin;
             header('location: lorem');
             exit();
         }

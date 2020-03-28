@@ -3,30 +3,25 @@ require __DIR__ . '/User.php';
 
 session_start();
 
-$user = new User();
-echo $user->verificateUser("12das3", "1234");
+//$user = new User();
+//echo $user->verificateUser("12das3", "1234");
 
 if ($_SESSION['login'] ?? null) {
     header('location: lorem');
     exit();
-} elseif (!(isset($_SESSION['username']) && isset($_SESSION['password']))) {
+} else {
     $newUsername = $_POST['username'] ?? null;
     $newPassword = $_POST['password'] ?? null;
 
     if (is_string($newUsername) && is_string($newPassword)) {
-        $_SESSION['username'] = $newUsername;
-        $_SESSION['password'] = $newPassword;
-
         $user = new User();
         $user->addUser($newUsername, $newPassword);
+        header('location: login');
+        exit();
     }
 
     $username = $_SESSION['username'] ?? null;
     $password = $_SESSION['password'] ?? null;
-}
-if ((isset($_SESSION['username']) && isset($_SESSION['password'])) && ($_SESSION['username'] && $_SESSION['password'])){
-    header('location: login');
-    exit();
 }
 
 ?>

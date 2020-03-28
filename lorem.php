@@ -1,10 +1,7 @@
 <?php
 session_start();
 
-if (!(isset($_SESSION['username']) && isset($_SESSION['password']))) {
-    header('location: registration');
-    exit();
-} elseif (!isset($_SESSION['login']) || !$_SESSION['login']) {
+if (!isset($_SESSION['login']) || !$_SESSION['login']) {
     header('location: login');
     exit();
 }

@@ -18,10 +18,4 @@ if ($_SESSION['login'] ?? null) {
     }
 }
 
-?>
-
-<form method="post">
-    <label>Your username: <input name="username"></label>
-    <label>Your password: <input name="password"></label>
-    <button type="submit">Register</button>
-</form>
+require __DIR__ . '/registration.phtml';

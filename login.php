@@ -22,10 +22,4 @@ if ($_SESSION['login'] ?? null) {
     }
 }
 
-?>
-
-<form method="post">
-    <label>Username: <input name="username"></label>
-    <label>Password: <input name="password"></label>
-    <button type="submit">Login</button>
-</form>
+require __DIR__ . '/login.phtml';

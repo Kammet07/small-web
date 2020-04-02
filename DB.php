@@ -15,7 +15,7 @@ class DB
 
     }
 
-    public function connect()
+    public function connect(): mysqli
     {
         $this->connection = new mysqli($this->servername, $this->username, $this->password);
         if ($this->connection->connect_error) {

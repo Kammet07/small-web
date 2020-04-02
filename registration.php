@@ -1,10 +1,7 @@
 <?php
-require __DIR__ . '/User.php';
+require __DIR__ . '/UserManager.php';
 
 session_start();
-
-//$user = new User();
-//echo $user->verificateUser("12das3", "1234");
 
 if ($_SESSION['login'] ?? null) {
     header('location: lorem');
@@ -14,7 +11,7 @@ if ($_SESSION['login'] ?? null) {
     $newPassword = $_POST['password'] ?? null;
 
     if (is_string($newUsername) && is_string($newPassword)) {
-        $user = new User();
+        $user = new UserManager();
         $user->addUser($newUsername, $newPassword);
         header('location: login');
         exit();

@@ -16,9 +16,6 @@ if ($_SESSION['login'] ?? null) {
         header('location: login');
         exit();
     }
-
-    $username = $_SESSION['username'] ?? null;
-    $password = $_SESSION['password'] ?? null;
 }
 
 ?>

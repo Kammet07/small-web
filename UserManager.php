@@ -3,22 +3,20 @@ require __DIR__ . '/DB.php';
 
 class UserManager
 {
-    public function addUser(String $username, String $password)
+    public function addUser(string $username, string $password)
     {
         $conn = new DB;
         $connection = $conn->connect();
 
-        if ($conn instanceof DB) {
-            $password = password_hash($password, PASSWORD_ARGON2ID);
+        $password = password_hash($password, PASSWORD_ARGON2ID);
 
-            $stmt = $connection->prepare("INSERT INTO small_web.users (username, password) VALUES (?, ?)");
-            $stmt->bind_param("ss", $username, $password);
-            $stmt->execute();
-        }
+        $stmt = $connection->prepare("INSERT INTO small_web.users (username, password) VALUES (?, ?)");
+        $stmt->bind_param("ss", $username, $password);
+        $stmt->execute();
 
     }
 
-    public function verify(String $username, String $password): bool
+    public function verify(string $username, string $password): bool
     {
         $conn = new DB;
         $connection = $conn->connect();
